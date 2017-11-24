@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {UrlShortenerService} from '../url-shortener.service';
-import {StorageService} from "../storage.service";
-// import { Warehouse } from 'ngx-warehouse';
+import {StorageService} from '../storage.service';
+import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import {StorageService} from "../storage.service";
 
 export class HomeComponent implements OnInit {
   url: string;
+  shortUrl: string;
 
   constructor(public urlShortener: UrlShortenerService, public storageService: StorageService) { }
 
@@ -21,13 +23,12 @@ export class HomeComponent implements OnInit {
     this.storeUrl();
   }
   storeUrl() {
-    this.storageService.set(this.url);
-    // this.warehouse.count().subscribe(
-    //   (value) => console.log(value)
-    // );
+    const id = this.storageService.set(this.url);
+    this.shortenUrl(id);
   }
-  // shortenUrl(){
-  //   // this.urlShortener.encode()
-  // }
+  shortenUrl(id) {
+    const hash = this.urlShortener.encode(id);
+    this.shortUrl = this.storageService.getHost() + 'r/' + hash;
+  }
 
 }
