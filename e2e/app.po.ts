@@ -6,6 +6,13 @@ export class ShortenerChallengePage {
   }
 
   getParagraphText() {
-    return element(by.css('app-root h1')).getText();
+    return element(by.css('app-root h2')).getText();
+  }
+  getButtonText() {
+    return element(by.css('app-root button')).getText();
+  }
+
+  getInputField() {
+    return element(by.css('app-root input')).getAttribute('name');
   }
 }
