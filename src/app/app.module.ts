@@ -7,16 +7,21 @@ import { UrlShortenerService } from './url-shortener.service';
 import { ShortUrlComponent } from './short-url/short-url.component';
 import { HomeComponent } from './home/home.component';
 import { StorageService } from './storage.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RedirectComponent } from './redirect/redirect.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     ShortUrlComponent,
-    HomeComponent
+    HomeComponent,
+    RedirectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [UrlShortenerService, StorageService],
   bootstrap: [AppComponent]
