@@ -1,3 +1,6 @@
-<p>
+<p *ngIf="url">
   Redirecting to {{url}}
+</p>
+<p *ngIf="error">
+  URL was not Found
 </p>

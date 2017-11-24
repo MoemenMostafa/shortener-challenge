@@ -10,7 +10,8 @@ import {StorageService} from '../storage.service';
 })
 export class RedirectComponent implements OnInit {
 
-  url: string;
+  url: any;
+  error: boolean;
 
   constructor(public urlShortener: UrlShortenerService, public storageService: StorageService, private activatedRoute: ActivatedRoute) { }
 
@@ -18,10 +19,17 @@ export class RedirectComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       const hash = params['hash'];
       const id = this.urlShortener.decode(hash);
-      this.url = this.storageService.get(id - 1);
-      setTimeout(() => window.location.href = this.url, 2000);
+      this.handleRedirect(id);
     });
 
   }
 
+  handleRedirect(id) {
+    if (this.storageService.get(id - 1)) {
+      this.url = this.storageService.get(id - 1);
+      setTimeout(() => window.location.href = this.url, 2000);
+    }else {
+      this.error = true;
+    }
+  }
 }

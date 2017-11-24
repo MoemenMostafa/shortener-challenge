@@ -21,7 +21,11 @@ export class StorageService {
     return this.store.length;
   }
   get(id) {
-    return this.store[id];
+    if (typeof(this.store[id]) !== 'undefined') {
+      return this.store[id];
+    }else {
+      return false;
+    }
   }
 
   getHost() {

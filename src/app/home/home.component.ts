@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   }
   shortenUrl(id) {
     const hash = this.urlShortener.encode(id);
-    this.shortUrl = this.storageService.getHost() + 'r/' + hash;
+    this.shortUrl = this.storageService.getHost() + hash;
   }
 
 }

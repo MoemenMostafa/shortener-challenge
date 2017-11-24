@@ -3,8 +3,8 @@
     <h2 class="text-center">
       Please Enter Your URL to get a short one
     </h2>
-    <form class="form-group text-center" (ngSubmit)="onSubmit()">
-      <input class="form-control" type="url" [(ngModel)]="url" name="url"/>
+    <form ngNativeValidate class="form-group text-center" (ngSubmit)="onSubmit()">
+      <input class="form-control" type="url" [(ngModel)]="url" name="url" required />
       <button class="btn btn-default">Get Short URL</button>
     </form>
     <h3 class="text-center">
