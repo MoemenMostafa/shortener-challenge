@@ -6,9 +6,9 @@ import {HomeComponent} from './home/home.component';
 import {RedirectComponent} from './redirect/redirect.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
-  { path: 'r/:hash', component: RedirectComponent },
+  // { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', component: HomeComponent },
+  { path: ':hash', component: RedirectComponent },
 
 ];
 
