@@ -6,6 +6,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { UrlShortenerService } from './url-shortener.service';
 import { ShortUrlComponent } from './short-url/short-url.component';
 import { HomeComponent } from './home/home.component';
+import { StorageService } from './storage.service';
 
 @NgModule({
   declarations: [
@@ -16,9 +17,8 @@ import { HomeComponent } from './home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule
-
   ],
-  providers: [UrlShortenerService],
+  providers: [UrlShortenerService, StorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
