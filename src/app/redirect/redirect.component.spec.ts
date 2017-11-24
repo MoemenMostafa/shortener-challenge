@@ -17,7 +17,7 @@ describe('RedirectComponent', () => {
       providers: [
         UrlShortenerService,
         StorageService,
-        { provide: ActivatedRoute,  useValue: {params: Observable.of({hash: 123})} }
+        { provide: ActivatedRoute,  useValue: {params: Observable.of({hash: 1})} }
       ]
     })
     .compileComponents();
