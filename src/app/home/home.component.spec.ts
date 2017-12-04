@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import {FormsModule} from '@angular/forms';
+import {StorageService} from '../storage.service';
+import {UrlShortenerService} from '../url-shortener.service';
+
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -8,7 +12,12 @@ describe('HomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      imports: [ FormsModule ],
+      providers: [
+        StorageService,
+        UrlShortenerService
+      ]
     })
     .compileComponents();
   }));
